@@ -72,3 +72,9 @@ def LD(Dictionary_Name, DataFrame, Location_Number, debug=False):
         #.loc selects a specific row
         #.drop drops the column locations (since there is no need for it anymore, the dataframe itself gives the information)
         #append everything to the new dictionaries/dataframes
+
+for x in range(0, len(LC)):
+    LD(FTL[x],FT,x)
+
+for x in range(0, len(LC)):
+    LD(HTL[x],HT,x)
