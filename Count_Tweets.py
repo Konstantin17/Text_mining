@@ -25,39 +25,41 @@ def CT(DataFrame_FloodTags, DataFrame_HealthTags, debug=False):
     print("total:")
     print(sum(healthtest))
     
-    #CT(FT,HT)
+#CT(FT,HT)
 #Flood Tweet Count Bar
-fig = plt.figure(figsize=(16,8))
-ax = fig.add_subplot(111)
-
-ind = np.arange(len(CFT['Class']))
-width = 1
-ax.bar(ind, CFT['Flood_Tweet'], width, align='center')
-
-ax.set_xlim(-width,len(ind))
-ax.set_ylim(0,310000)
-ax.set_ylabel('Tweets')
-ax.set_title('Flood Tweet Count')
-xTickMarks = [CFT['Class'][x] for x in range(len(CFT['Class']))]
-ax.set_xticks(ind)
-xTickNames = ax.set_xticklabels(xTickMarks)
-plt.setp(xTickNames, rotation=90, fontsize=12)
+def FT_CB():
+    fig = plt.figure(figsize=(16,8))
+    ax = fig.add_subplot(111)
+    
+    ind = np.arange(len(CFT['Class']))
+    width = 1
+    ax.bar(ind, CFT['Flood_Tweet'], width, align='center')
+    
+    ax.set_xlim(-width,len(ind))
+    ax.set_ylim(0,310000)
+    ax.set_ylabel('Tweets')
+    ax.set_title('Flood Tweet Count')
+    xTickMarks = [CFT['Class'][x] for x in range(len(CFT['Class']))]
+    ax.set_xticks(ind)
+    xTickNames = ax.set_xticklabels(xTickMarks)
+    plt.setp(xTickNames, rotation=90, fontsize=12)
 
 #Health Tweet Count Bar
-fig = plt.figure(figsize=(16,8))
-ax = fig.add_subplot(111)
-
-ind = np.arange(len(CHT['Class']))
-ax.bar(ind, CHT['Health_Tweet'], width, align='center',color='r')
-
-ax.set_xlim(-width,len(ind))
-ax.set_ylim(0,60000)
-ax.set_ylabel('Tweets')
-ax.set_title('Health Tweet Count')
-xTickMarks1 = [CHT['Class'][x] for x in range(len(CHT['Class']))]
-ax.set_xticks(ind)
-xTickNames1 = ax.set_xticklabels(xTickMarks1)
-plt.setp(xTickNames1, rotation=90, fontsize=12)
+def HT_CB():
+    fig = plt.figure(figsize=(16,8))
+    ax = fig.add_subplot(111)
+    
+    ind = np.arange(len(CHT['Class']))
+    ax.bar(ind, CHT['Health_Tweet'], width, align='center',color='r')
+    
+    ax.set_xlim(-width,len(ind))
+    ax.set_ylim(0,60000)
+    ax.set_ylabel('Tweets')
+    ax.set_title('Health Tweet Count')
+    xTickMarks1 = [CHT['Class'][x] for x in range(len(CHT['Class']))]
+    ax.set_xticks(ind)
+    xTickNames1 = ax.set_xticklabels(xTickMarks1)
+    plt.setp(xTickNames1, rotation=90, fontsize=12)
 
 ###Count Tweets according to location
 #Function to seperate locations
